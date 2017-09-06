@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Whole New World</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <form action="/newPlanet" method="post">
+      <input type='text' name='planetName' placeholder='name of planet'></input></br>
+      <input type='text' name='atmosphereColor' placeholder='color of amtmosphere'></input></br>
+      <input type='number' name='atmosphereTemperature' placeholder='surface temperature'></input></br>
+      <input type='text' name='atmosphereElement' placeholder='atmosphere composition element'></input></br>
+      <input type='text' name='elementPercentage' placeholder='percentage of atmosphere'></input></br>
+      <label for='hasLife'>Inhabited?</label>
+      <select name='hasLife' id='hasLife'>
+        <option value="false">Uninhabited</option>
+        <option value="true">Inhabited</option>
+      </select>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

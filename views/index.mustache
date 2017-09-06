@@ -5,8 +5,38 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    {{#planets}}
-      {{.}}
-    {{/planets}}
+    <p>LOOK AT ALL OF THESE COOL PLANETS I FOUND</p>
+    <form action="/newPlanet" method="get">
+      <button>a whole new world</button>
+    </form>
+    <div id="bigOlePlanetBox">
+      {{#planets}}
+        <div class="planetContainer">
+          <h2>{{name}}</h2>
+          <span style="color: {{atmosphere.color}}">{{atmosphere.color}} </span><span>atmosphere</span>
+          <p>Temperature: {{atmosphere.temperature}}</p>
+
+          {{#atmosphere.composition}}
+            {{#.}}
+              <p>{{percentage}}% {{element}}</p>
+            {{/.}}
+          {{/atmosphere.composition}}
+
+          {{#hasLife}}
+            <p>INHABITED</p>
+          {{/hasLife}}
+
+          {{^hasLife}}
+            <p>UNINHABITED</p>
+          {{/hasLife}}
+          <form action="/edit/{{name}}" method="get">
+            <button>edit</button>
+          </form>
+          <form action="/remove/{{name}}" method="post">
+            <button>remove</button>
+          </form>
+        </div>
+      {{/planets}}
+    </div>
   </body>
 </html>

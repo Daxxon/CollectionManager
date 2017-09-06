@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit {{name}}</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+  </head>
+  <body>
+    <form action="/edit/{{name}}" method="post">
+      <input type='text' name='planetName' value='{{name}}'></input></br>
+      <input type='text' name='atmosphereColor' value='{{atmosphere.color}}'></input></br>
+      <input type='number' name='atmosphereTemperature' value='{{atmosphere.temperature}}'></input></br>
+      {{#atmosphere.composition}}
+        {{#.}}
+          <input type='text' name='atmosphereElement' value='{{element}}'></input></br>
+          <input type='text' name='elementPercentage' value='{{percentage}}'></input></br>
+        {{/.}}
+      {{/atmosphere.composition}}
+
+      <label for='hasLife'>Inhabited?</label>
+      <select name='hasLife' id='hasLife'>
+        <option value="false">Uninhabited</option>
+        <option value="true">Inhabited</option>
+      </select>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
